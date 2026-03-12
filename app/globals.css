@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #F0F3F0;
+  --green: #1A6B3C;
+  --gold: #F1C40F;
+  --dark: #1C1C1E;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--dark);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Reading progress bar */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--gold);
+  z-index: 9999;
+  transition: width 0.1s ease;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .gold-line {
+    border-top: 2px solid var(--gold);
+  }
+  .green-border-l {
+    border-left: 4px solid var(--green);
+  }
+}
