@@ -8,9 +8,12 @@ const CONTENT_DIR = path.join(process.cwd(), "content/columna");
 export interface ArticleMeta {
   slug: string;
   title: string;
+  subtitle?: string;
   date: string;
   excerpt: string;
   tag: string;
+  linkedinUrl?: string;
+  image?: string;
 }
 
 export interface Article extends ArticleMeta {
@@ -33,9 +36,12 @@ export function getArticles(): ArticleMeta[] {
     return {
       slug,
       title: data.title ?? slug,
+      subtitle: data.subtitle ?? "",
       date: data.date ?? "",
       excerpt: data.excerpt ?? "",
       tag: data.tag ?? "",
+      linkedinUrl: data.linkedinUrl ?? "",
+      image: data.image ?? "",
     } as ArticleMeta;
   });
 
@@ -56,9 +62,12 @@ export function getArticleBySlug(slug: string): Article | null {
       return {
         slug,
         title: data.title ?? slug,
+        subtitle: data.subtitle ?? "",
         date: data.date ?? "",
         excerpt: data.excerpt ?? "",
         tag: data.tag ?? "",
+        linkedinUrl: data.linkedinUrl ?? "",
+        image: data.image ?? "",
         content,
       };
     }
