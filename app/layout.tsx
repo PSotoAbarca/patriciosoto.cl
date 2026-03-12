@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   },
   description:
     "Columna de opinión y análisis sobre estrategia de negocios, tecnología y liderazgo.",
-  metadataBase: new URL("https://patriciosoto.cl"),
+  metadataBase: new URL("https://patriciosotoa.com"),
   openGraph: {
     type: "website",
     locale: "es_CL",
-    url: "https://patriciosoto.cl",
+    url: "https://patriciosotoa.com",
     siteName: "Patricio Soto",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },

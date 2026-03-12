@@ -23,10 +23,10 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Formulario <noreply@patriciosoto.cl>",
-        to: ["hola@patriciosoto.cl"],
+        from: "Formulario <noreply@patriciosotoa.com>",
+        to: ["hola@patriciosotoa.com"],
         reply_to: email,
-        subject: `[patriciosoto.cl] ${subject}`,
+        subject: `[patriciosotoa.com] ${subject}`,
         text: `Nombre: ${name}\nEmail: ${email}\n\n${message}`,
         html: `
           <p><strong>Nombre:</strong> ${name}</p>
