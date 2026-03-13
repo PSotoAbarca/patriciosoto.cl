@@ -41,13 +41,13 @@ export default function ContactoPage() {
 
             <div className="space-y-4">
               <a
-                href="mailto:info@patriciosotoa.com"
+                href="mailto:patricio.soto@patriciosotoa.com"
                 className="flex items-center gap-3 text-brand-dark/70 hover:text-brand-green transition-colors group"
               >
                 <span className="w-8 h-8 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green group-hover:bg-brand-green group-hover:text-white transition-colors text-sm">
                   ✉
                 </span>
-                <span className="text-sm">info@patriciosotoa.com</span>
+                <span className="text-sm">patricio.soto@patriciosotoa.com</span>
               </a>
 
               <a

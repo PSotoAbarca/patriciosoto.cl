@@ -96,7 +96,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         from: "Formulario patriciosotoa.com <noreply@patriciosotoa.com>",
-        to: ["info@patriciosotoa.com"],
+        to: ["patricio.soto@patriciosotoa.com"],
         reply_to: safeEmail,
         subject: `[patriciosotoa.com] ${safeSubject}`,
         // Plain-text version (safe)
