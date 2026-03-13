@@ -11,6 +11,15 @@ Bienvenido a la documentación del sitio web personal de Patricio Soto A.
 | [buenas-practicas-mdx.md](./buenas-practicas-mdx.md) | Convenciones para escribir artículos en MDX |
 | [deploy-y-dominios.md](./deploy-y-dominios.md) | Deploy automático, Vercel y configuración de dominio |
 | [personalizacion.md](./personalizacion.md) | Cómo cambiar textos, colores y agregar páginas |
+| [seguridad.md](./seguridad.md) | Auditoría de seguridad, headers HTTP, validación y checklist de deploy |
+
+## Filosofía del proyecto
+
+Este sitio es la presencia digital de **Patricio Soto Abarca**, Ingeniero Civil Electricista con más de 14 años en el sector energético chileno. Refleja tres pilares:
+
+1. **Contenido técnico de valor** — análisis de mercados eléctricos, energía renovable y planificación estratégica, publicados como artículos MDX vinculados a LinkedIn
+2. **Digitalización y datos** — el sitio mismo es un ejemplo del enfoque analítico: flujo editorial automatizado, deploy continuo, métricas
+3. **Ciberseguridad como principio transversal** — cada capa del stack aplica defensa en profundidad: validación de inputs con Zod, sanitización HTML, security headers HTTP, rate limiting y protección de secretos. Ver [seguridad.md](./seguridad.md) para el detalle completo
 
 ## Resumen rápido del flujo
 

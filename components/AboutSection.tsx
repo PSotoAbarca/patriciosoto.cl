@@ -62,7 +62,7 @@ export default function AboutSection() {
             <div className="border-l-4 border-brand-green pl-6 mb-8">
               <div className="h-0.5 w-12 bg-brand-gold mb-5" />
               <h2 className="text-2xl md:text-3xl font-extrabold text-brand-dark mb-2">
-                Patricio <span className="text-brand-green">S</span>oto{" "}
+                <span className="text-brand-green">P</span>atricio <span className="text-brand-green">S</span>oto{" "}
                 <span className="text-brand-green">A</span>.
               </h2>
               <p className="text-brand-green font-medium text-sm tracking-wide mb-5">

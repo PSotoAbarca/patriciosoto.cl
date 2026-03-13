@@ -31,7 +31,7 @@ export default function HeroSection() {
 
           {/* Name */}
           <h1 className="text-5xl md:text-7xl font-extrabold text-brand-dark leading-none tracking-tight mb-6">
-            Patricio
+            <span className="text-brand-green">P</span>atricio
             <br />
             <span className="text-brand-green">S</span>oto{" "}
             <span className="text-brand-green">A</span>.
