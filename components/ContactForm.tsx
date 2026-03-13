@@ -8,9 +8,13 @@ interface FormData {
   email: string;
   subject: string;
   message: string;
+  website: string; // honeypot — hidden from real users
 }
 
 type Status = "idle" | "loading" | "success" | "error";
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const MAX_MESSAGE = 2000;
 
 export default function ContactForm() {
   const [form, setForm] = useState<FormData>({
@@ -18,29 +22,55 @@ export default function ContactForm() {
     email: "",
     subject: "",
     message: "",
+    website: "", // honeypot stays empty for humans
   });
   const [status, setStatus] = useState<Status>("idle");
+  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    // Clear error on change
+    if (errors[name as keyof FormData]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
+
+  function validate(): boolean {
+    const newErrors: Partial<Record<keyof FormData, string>> = {};
+    if (!form.name.trim()) newErrors.name = "Nombre requerido";
+    if (!EMAIL_REGEX.test(form.email.trim())) newErrors.email = "Email inválido";
+    if (!form.subject.trim()) newErrors.subject = "Asunto requerido";
+    if (!form.message.trim()) newErrors.message = "Mensaje requerido";
+    if (form.message.length > MAX_MESSAGE)
+      newErrors.message = `Máximo ${MAX_MESSAGE} caracteres`;
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validate()) return;
     setStatus("loading");
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          subject: form.subject.trim(),
+          message: form.message.trim(),
+          website: form.website, // honeypot
+        }),
       });
 
       if (res.ok) {
         setStatus("success");
-        setForm({ name: "", email: "", subject: "", message: "" });
+        setForm({ name: "", email: "", subject: "", message: "", website: "" });
       } else {
         setStatus("error");
       }
@@ -49,11 +79,28 @@ export default function ContactForm() {
     }
   };
 
-  const inputClass =
-    "w-full bg-white border border-brand-green/20 rounded-lg px-4 py-3 text-brand-dark text-sm placeholder:text-brand-dark/30 focus:outline-none focus:ring-2 focus:ring-brand-green/30 focus:border-brand-green transition-all";
+  const inputClass = (field: keyof FormData) =>
+    `w-full bg-white border rounded-lg px-4 py-3 text-brand-dark text-sm placeholder:text-brand-dark/30 focus:outline-none focus:ring-2 transition-all ${
+      errors[field]
+        ? "border-red-400 focus:ring-red-200"
+        : "border-brand-green/20 focus:ring-brand-green/30 focus:border-brand-green"
+    }`;
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+
+      {/* Honeypot — visually hidden, aria-hidden, not focusable */}
+      <div aria-hidden="true" className="hidden" style={{ display: "none" }}>
+        <input
+          type="text"
+          name="website"
+          value={form.website}
+          onChange={handleChange}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm font-medium text-brand-dark/70 mb-1.5">
@@ -62,12 +109,13 @@ export default function ContactForm() {
           <input
             type="text"
             name="name"
-            required
             value={form.name}
             onChange={handleChange}
             placeholder="Tu nombre"
-            className={inputClass}
+            maxLength={100}
+            className={inputClass("name")}
           />
+          {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name}</p>}
         </div>
         <div>
           <label className="block text-sm font-medium text-brand-dark/70 mb-1.5">
@@ -76,12 +124,13 @@ export default function ContactForm() {
           <input
             type="email"
             name="email"
-            required
             value={form.email}
             onChange={handleChange}
             placeholder="tu@email.com"
-            className={inputClass}
+            maxLength={254}
+            className={inputClass("email")}
           />
+          {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
         </div>
       </div>
 
@@ -92,27 +141,34 @@ export default function ContactForm() {
         <input
           type="text"
           name="subject"
-          required
           value={form.subject}
           onChange={handleChange}
           placeholder="¿De qué quieres hablar?"
-          className={inputClass}
+          maxLength={200}
+          className={inputClass("subject")}
         />
+        {errors.subject && <p className="text-xs text-red-500 mt-1">{errors.subject}</p>}
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-brand-dark/70 mb-1.5">
-          Mensaje
-        </label>
+        <div className="flex justify-between mb-1.5">
+          <label className="block text-sm font-medium text-brand-dark/70">
+            Mensaje
+          </label>
+          <span className={`text-xs ${form.message.length > MAX_MESSAGE * 0.9 ? "text-red-400" : "text-brand-dark/30"}`}>
+            {form.message.length}/{MAX_MESSAGE}
+          </span>
+        </div>
         <textarea
           name="message"
-          required
           rows={6}
           value={form.message}
           onChange={handleChange}
           placeholder="Cuéntame más..."
-          className={`${inputClass} resize-none`}
+          maxLength={MAX_MESSAGE}
+          className={`${inputClass("message")} resize-none`}
         />
+        {errors.message && <p className="text-xs text-red-500 mt-1">{errors.message}</p>}
       </div>
 
       <button
