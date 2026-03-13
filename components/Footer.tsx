@@ -7,11 +7,11 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <span className="w-2 h-5 bg-brand-green rounded-sm" />
-          <span className="font-bold text-brand-dark text-sm">Patricio Soto</span>
+          <span className="font-bold text-brand-dark text-sm">Patricio <span className="text-brand-green">S</span>oto <span className="text-brand-green">A</span>.</span>
         </div>
 
         <p className="text-brand-dark/50 text-sm">
-          © {year} · Estrategia + Tecnología
+          © {year} · Mercados Eléctricos + Estrategia Energética
         </p>
 
         <div className="flex items-center gap-6 text-sm">

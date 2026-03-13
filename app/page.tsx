@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
 import ArticleCard from "@/components/ArticleCard";
 import ProjectCard from "@/components/ProjectCard";
 import { getArticles } from "@/lib/mdx";
@@ -11,6 +12,8 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+
+      <AboutSection />
 
       {/* Latest articles */}
       <section className="max-w-5xl mx-auto px-6 py-20">
@@ -88,10 +91,10 @@ export default function Home() {
       <section className="bg-brand-green py-20">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            ¿Tienes un proyecto en mente?
+            ¿Necesitas análisis o asesoría energética?
           </h2>
           <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">
-            Trabajo con equipos y líderes que quieren construir mejor.
+            Apoyo a organizaciones del sector energético a tomar mejores decisiones en contextos de alta incertidumbre.
           </p>
           <Link
             href="/contacto"

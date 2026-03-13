@@ -23,7 +23,7 @@ export default function Nav() {
         <Link href="/" className="flex items-center gap-2 group">
           <span className="w-2 h-6 bg-brand-green rounded-sm" />
           <span className="font-bold text-brand-dark text-lg tracking-tight group-hover:text-brand-green transition-colors">
-            Patricio Soto
+            Patricio <span className="text-brand-green">S</span>oto <span className="text-brand-green">A</span>.
           </span>
         </Link>
 

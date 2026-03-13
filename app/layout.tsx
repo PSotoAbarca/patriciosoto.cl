@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Patricio Soto — Estrategia + Tecnología",
-    template: "%s | Patricio Soto",
+    default: "Patricio Soto A. — Mercados Eléctricos y Estrategia Energética",
+    template: "%s | Patricio Soto A.",
   },
   description:
-    "Columna de opinión y análisis sobre estrategia de negocios, tecnología y liderazgo.",
+    "Ingeniero Civil Electricista con 14+ años en mercados eléctricos, energía renovable y planificación estratégica en Chile.",
   metadataBase: new URL("https://patriciosotoa.com"),
   openGraph: {
     type: "website",

@@ -21,8 +21,8 @@ export default function ContactoPage() {
           Hablemos
         </h1>
         <p className="text-brand-dark/60 text-lg max-w-xl">
-          ¿Tienes un proyecto, idea o simplemente quieres intercambiar
-          perspectivas? Estoy disponible.
+          ¿Necesitas análisis de mercados eléctricos, planificación estratégica
+          o apoyo en digitalización del sector energético? Conversemos.
         </p>
       </div>
 
@@ -83,10 +83,10 @@ export default function ContactoPage() {
             </h3>
             <ul className="text-sm text-brand-dark/60 space-y-1.5">
               {[
-                "Estrategia de producto",
-                "Transformación digital",
-                "Consultoría tecnológica",
-                "Charlas y workshops",
+                "Análisis de mercados eléctricos",
+                "Planificación estratégica energética",
+                "Gestión de riesgos de mercado",
+                "Digitalización y análisis de datos",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-brand-gold flex-shrink-0" />

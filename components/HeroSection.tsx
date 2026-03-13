@@ -25,15 +25,16 @@ export default function HeroSection() {
           <div className="flex items-center gap-3 mb-6">
             <span className="w-8 h-0.5 bg-brand-gold" />
             <span className="text-sm font-medium text-brand-green tracking-widest uppercase">
-              Estrategia · Tecnología · Liderazgo
+              Mercados · Estrategia · Renovables
             </span>
           </div>
 
           {/* Name */}
           <h1 className="text-5xl md:text-7xl font-extrabold text-brand-dark leading-none tracking-tight mb-6">
-            <span className="text-brand-green">P</span>atricio
+            Patricio
             <br />
-            <span className="text-brand-green">S</span>oto
+            <span className="text-brand-green">S</span>oto{" "}
+            <span className="text-brand-green">A</span>.
           </h1>
 
           {/* Tagline */}
@@ -43,11 +44,11 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-xl md:text-2xl text-brand-dark/60 max-w-xl leading-relaxed mb-10"
           >
-            Conecto estrategia de negocio con tecnología para construir{" "}
+            Ingeniero Civil Electricista con más de 14 años en{" "}
             <span className="text-brand-green font-semibold">
-              productos que crecen
-            </span>{" "}
-            y equipos que los hacen posibles.
+              mercados eléctricos y energía renovable
+            </span>
+            , conectando análisis técnico, económico y regulatorio para decisiones estratégicas.
           </motion.p>
 
           {/* CTAs */}
