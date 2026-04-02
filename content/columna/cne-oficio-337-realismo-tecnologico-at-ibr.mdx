@@ -1,0 +1,86 @@
+---
+title: "Los 20 milisegundos que la industria no puede cumplir — y lo que eso revela sobre nuestra transición"
+subtitle: "El Oficio ORD. CNE N° 337/2026 no es solo una aclaración técnica. Es el momento en que el regulador reconoció formalmente algo que la física del sistema venía señalando hace meses."
+excerpt: "El requisito de 20 ms para IBR GFM no es un umbral rígido: es la cadena de suministro global chocando con la ambición normativa. Pero hay algo más importante en el Oficio CNE N° 337/2026 — la confirmación de que los condensadores síncronos son necesidad estructural del sistema, no opción de diseño para proyectos individuales."
+date: "2026-04-02"
+tag: "Regulación"
+linkedinUrl: "https://www.linkedin.com/posts/patricio-soto-abarca_energaedachile-sen-mercadoselaezctricos-share-7445455252171948032-rR-x?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAfjCbQB2z_WO1v4SXFhaWhpiyUxfIWjiX0"
+image: "/columna/cne-oficio-337-infografia.png"
+---
+
+*Una lectura técnica del Oficio ORD. CNE N° 337/2026 — y de lo que dice entre líneas sobre la transición energética chilena.*
+
+En columnas anteriores describí dos problemas que el mercado eléctrico chileno no está remunerando: la inercia y la fortaleza de red. Cuantifiqué su costo — USD 265 millones anuales para 2027, solo para mantener los mínimos de seguridad del SEN — y planteé que la compensación síncrona no es tecnología obsoleta sino el puente necesario para que la transición se haga de manera segura.
+
+El 30 de marzo, la CNE emitió el Oficio ORD. N° 337/2026 respondiendo consultas técnicas de Generadoras de Chile A.G. y Enel Generación Chile S.A. sobre la aplicación del Anexo Técnico IBR y del Anexo Técnico de Estudio de Robustez. El documento responde diez puntos.
+
+Leído en conjunto, el oficio hace algo más que aclarar artículos. Confirma, con lenguaje regulatorio, lo que el análisis sistémico ya mostraba: el SEN necesita compensación síncrona. No como opción de diseño para proyectos individuales. Como necesidad estructural del sistema en transición.
+
+<ArticleImage
+  src="/columna/cne-oficio-337-infografia.png"
+  alt="CNE N°337/2026: Realismo Tecnológico en el AT IBR"
+/>
+
+## El matiz que importa: 10 ms para reaccionar, 20 ms para establecerse
+
+El primer punto del oficio aborda el requisito de tiempo de establecimiento inferior a **20 milisegundos** para inversores IBR GFM, establecido en el Título 3 del AT IBR. Generadoras de Chile y Enel Generación señalaron lo que la industria sabía pero pocos decían en voz alta: ese valor no es alcanzable con la tecnología comercial disponible hoy.
+
+La CNE no lo niega. Lo precisa con una distinción técnica importante.
+
+Cuando la norma dice que el convertidor debe **"reaccionar"** en menos de 10 ms, el objetivo es asegurar una respuesta instantánea ante la perturbación — sin retardos artificiales introducidos por lógicas de control adicionales. Cuando dice que la respuesta debe **"establecerse"** en menos de 20 ms, el objetivo es que la señal ingrese a una banda de control dentro de la cual pueda considerarse que el convertidor ha iniciado la acción. No que haya alcanzado el régimen definitivo.
+
+La consecuencia práctica: mientras no exista disponibilidad tecnológica comercial que permita alcanzar ese desempeño de forma consistente, la verificación de los 20 ms no se aplicará como umbral rígido de cumplimiento, sino como parámetro referencial — siempre que se acredite el objetivo funcional de respuesta suficientemente rápida conforme a las capacidades propias de un IBR GFM.
+
+Es pragmatismo regulatorio bien articulado. Y deja abierta una pregunta que el propio oficio reconoce implícitamente: ¿cuántos otros parámetros del AT IBR están escritos para una frontera tecnológica que la industria aún no ha cruzado comercialmente?
+
+## La sobrecorriente: 1,3 p.u. en el convertidor, no en el Punto de Conexión
+
+El segundo punto resuelve dónde se miden los 1,3 p.u. de sobrecorriente exigidos a los IBR GFM: **en bornes del convertidor o PCS**, con independencia de los elementos eléctricos intermedios entre el inversor y el Punto de Conexión. Es una exigencia de diseño del equipo, continua en operación normal y ante fallas.
+
+Hay un dato que vale retener: 1,3 p.u. es considerablemente menos que lo que aporta una máquina síncrona de forma natural. Un compensador síncrono entrega entre 3 y 5 p.u. de corriente de cortocircuito. Esa brecha no es un detalle: es la razón física por la que el sistema necesita compensación síncrona de forma estructural, más allá de lo que cualquier proyecto individual decida instalar.
+
+## Lo que el oficio confirma sobre la necesidad sistémica
+
+El quinto punto del oficio aborda el SCR y ESCR, y aquí es donde el documento dice algo que trasciende la lógica de compliance individual.
+
+La CNE valida que soluciones permanentes que eleven el nivel de cortocircuito — condensadores síncronos u otras instalaciones equivalentes — se reflejan directamente en los cálculos del Coordinador según el AT de Estudio de Robustez. Si esa solución existe en una barra, el Coordinador la incorpora, y eso habilita la operación estable de los inversores GFL en esa barra.
+
+Es tentador leer esto como una herramienta de diseño para proyectos individuales. Pero la lectura correcta es otra.
+
+El SEN tiene instalados miles de MW en tecnología GFL — inversores Grid-Following que siguen la señal de la red en lugar de formarla, y que son vulnerables a inestabilidades cuando el nivel de cortocircuito en su punto de conexión es insuficiente. Esa flota no va a desaparecer. Seguirá creciendo. Y su estabilidad depende de que la red tenga el nivel de cortocircuito adecuado en cada zona.
+
+Ningún proyecto individual de BESS en modo GFM resuelve ese problema de manera sistémica. Un inversor GFM aporta 1,3 p.u. de sobrecorriente — lo que el oficio exige. Un compensador síncrono aporta 3 a 5 p.u. de forma intrínseca, física, sin depender de algoritmos de control ni de la disponibilidad del recurso energético. Y su aporte al nivel de cortocircuito de la barra beneficia a todos los inversores conectados a ella, no solo al proyecto que lo instaló.
+
+Lo que el oficio formaliza no es una opción para desarrolladores de proyectos. Es el reconocimiento de que el sistema, como conjunto, necesita compensación síncrona en zonas débiles para que la transición funcione. El quién paga eso, y cómo se remunera ese aporte sistémico, es la pregunta que el diseño de mercado aún no responde — y que conecta directamente con el Missing Money de inercia y fortaleza de red que describí en la columna anterior.
+
+## Proyectos híbridos y una aclaración relevante
+
+El oficio aclara también que en Centrales Renovables con Capacidad de Almacenamiento (CRCA), el requisito de SCR y ESCR del artículo 4-8 **no aplica a la componente de generación solar o eólica** cuando la componente de almacenamiento opera en modo GFM. Esto simplifica el análisis de interconexión de proyectos híbridos.
+
+Pero conviene no confundir esta flexibilización de requisitos individuales con una señal de que el problema sistémico está resuelto. Que un proyecto híbrido pueda conectarse más fácilmente no significa que la red en la que se conecta tenga el nivel de cortocircuito que necesita. Son planos distintos.
+
+## El cronograma que define la ventana
+
+El primer Estudio de Análisis de Robustez del SEN debe estar listo antes del **3 de febrero de 2027**. Ese estudio evaluará, mediante simulaciones dinámicas, la inercia sincrónica e inercia sintética disponible, las interacciones de control entre inversores IBR, y el aporte al control de tensión por zona. Sus resultados definirán qué adecuaciones se exigen y a quién.
+
+Hay menos de un año. Es el tiempo disponible para que el debate sobre compensación síncrona pase de ser una discusión técnica a ser una decisión de política regulatoria: quién instala, quién paga, y cómo se remunera el aporte sistémico de un activo que beneficia a todos pero que ningún proyecto tiene incentivo individual para financiar.
+
+Ese es el Missing Money que nadie está nombrando todavía con esa claridad.
+
+---
+
+## Puntos clave
+
+- El requisito de 20 ms para IBR GFM es parámetro referencial, no umbral rígido, mientras no exista tecnología comercial consistente. La CNE distingue "reaccionar" (<10 ms) de "establecerse" (<20 ms) con precisión relevante.
+- La sobrecorriente de 1,3 p.u. se verifica en bornes del convertidor. La brecha con los 3-5 p.u. de las máquinas síncronas es la razón física de la necesidad sistémica de compensación.
+- Los condensadores síncronos no son una herramienta de compliance para proyectos individuales: son la respuesta estructural al déficit de cortocircuito en zonas de red débil, donde miles de MW de inversores GFL necesitan ese soporte para operar establemente.
+- El Coordinador tiene hasta el 3 de febrero de 2027 para el primer Estudio de Análisis de Robustez. Es el plazo real para que el debate técnico se convierta en decisión regulatoria.
+- La pregunta pendiente: ¿quién financia la compensación síncrona sistémica, y cómo se remunera su aporte a toda la red?
+
+---
+
+*¿Debería Chile definir un mecanismo específico para financiar la compensación síncrona como infraestructura sistémica — similar a como se financia la transmisión — antes de que el retiro del carbón haga el problema inmanejable?*
+
+---
+
+**Fuente:** Oficio ORD. CNE N° 337/2026, 30 de marzo de 2026. Secretario Ejecutivo (S) Mauricio Javier Funes Huerta, Comisión Nacional de Energía.
