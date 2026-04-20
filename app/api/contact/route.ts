@@ -81,6 +81,7 @@ export async function POST(request: NextRequest) {
 
   // 5. Dev mode (no API key)
   const apiKey = process.env.RESEND_API_KEY;
+  console.log("[Contact] apiKey present:", !!apiKey, "| prefix:", apiKey?.slice(0, 8));
   if (!apiKey || apiKey === "re_placeholder") {
     console.log("[Contact form - DEV MODE] Message received (not sent)");
     return NextResponse.json({ ok: true, dev: true });
@@ -112,8 +113,10 @@ export async function POST(request: NextRequest) {
       }),
     });
 
+    const resBody = await res.json().catch(() => null);
+    console.log("[Resend response] status:", res.status, "| body:", JSON.stringify(resBody));
+
     if (!res.ok) {
-      console.error("[Resend error] status:", res.status);
       return NextResponse.json({ error: "Error al enviar." }, { status: 500 });
     }
 
