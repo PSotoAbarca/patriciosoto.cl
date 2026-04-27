@@ -1,0 +1,80 @@
+---
+title: "Lo que el test de Pettitt puede detectar — y lo que no puede prever"
+subtitle: "Chile usa solo la porción más reciente de su serie hidrológica para planificar su sistema eléctrico. Colombia usa toda la que tiene. Ambas decisiones vienen de la misma metodología estadística. Las dos comparten un límite que ningún test retrospectivo puede resolver."
+excerpt: "Los tests de Pettitt y Mann-Kendall son las herramientas estándar del sector para decidir qué porción de la historia hidrológica sigue siendo representativa del régimen actual. En Chile, el análisis identifica un quiebre estructural en la serie y recomienda usar solo los registros más recientes. En Colombia, el mismo análisis no encontró quiebre significativo — todos los años históricos se mantienen en el modelo. En abril de 2024, los embalses colombianos llegaron al 28,5% de su capacidad útil con los aportes más bajos en 40 años. El test había funcionado correctamente. Simplemente no había sido diseñado para ver lo que vendría."
+date: "2026-04-27"
+tag: "Regulación"
+linkedinUrl: "https://www.linkedin.com/posts/patricio-soto-abarca_energaedachile-hidrologaeda-planificaciaejnelaezctrica-share-7454620939159429123-O1v8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAfjCbQB2z_WO1v4SXFhaWhpiyUxfIWjiX0"
+image: "/columna/test-pettitt-hidrologia-sen-infografia.png"
+---
+
+*Una nota metodológica sobre los modelos de planificación eléctrica y los límites de lo que la estadística puede garantizar.*
+
+---
+
+En los sistemas eléctricos con alta participación hidráulica, uno de los insumos más críticos del modelo de despacho es también uno de los menos debatidos públicamente: la definición de qué porción de la historia hidrológica se usa como entrada al modelo PLP.
+
+La decisión no es arbitraria. El sector aplica herramientas estadísticas estándar —el **test de Pettitt**, el **test de Mann-Kendall** y el **estimador de Sen**— para responder una pregunta precisa: ¿en qué punto de la serie histórica cambia la distribución estadística de los caudales de manera suficientemente significativa como para considerar que los datos anteriores ya no representan el régimen actual?
+
+El test de Pettitt identifica ese quiebre. Mann-Kendall confirma si existe una tendencia sostenida. Sen cuantifica su magnitud. Si los tests detectan un cambio estructural, la recomendación es usar solo el período posterior al quiebre. Si no lo detectan, la serie completa sigue siendo válida.
+
+En Chile, el análisis identifica un quiebre estadísticamente significativo en la serie histórica de caudales del SEN. A partir de ese punto, solo los registros más recientes son considerados representativos del régimen actual. En Colombia, el mismo análisis aplicado a sus cuencas no encontró un quiebre significativo — todos los años históricos disponibles se mantienen como entrada al modelo.
+
+<ArticleImage
+  src="/columna/test-pettitt-hidrologia-sen-infografia.png"
+  alt="Test de Pettitt e hidrología representativa: límites metodológicos en la planificación eléctrica"
+/>
+
+## Qué hacen estos tests y por qué importa
+
+El test de Pettitt (1979) es un test no paramétrico que identifica el momento en que la distribución de una variable cambia de forma estadísticamente significativa. No requiere asumir una distribución particular de los datos —una ventaja importante para series hidrológicas que raramente se ajustan a distribuciones teóricas perfectas.
+
+Mann-Kendall detecta tendencias monotónicas en series temporales: si los caudales tienen una dirección consistente a lo largo del tiempo, el test la identifica. El estimador de Sen cuantifica la magnitud de esa tendencia.
+
+Combinados, los tres tests responden con rigor una pregunta retrospectiva: ¿ha cambiado el régimen hidrológico, cuándo ocurrió ese cambio y en qué magnitud? Para sistemas eléctricos con alta participación hidráulica —donde el año tipo que se use en el modelo de despacho afecta directamente las señales de expansión, los precios en el mercado mayorista y la planificación de transmisión— esa es una pregunta que vale la pena responder bien.
+
+## La paradoja colombiana
+
+La misma metodología aplicada a las cuencas del sistema colombiano arrojó el resultado opuesto: los tests no identificaron un quiebre estadísticamente significativo en las series de caudales. La conclusión: todos los años históricos disponibles siguen siendo representativos del régimen actual.
+
+Desde un punto de vista estadístico, ambos resultados son correctos. Chile tiene evidencia de un cambio estructural en su régimen de caudales —lo que la literatura llama la megasequía, atribuida en parte al cambio climático y en parte a la variabilidad natural de largo ciclo. Colombia no muestra ese quiebre con la misma nitidez en su serie histórica.
+
+Pero en abril de 2024, los embalses colombianos llegaron al **28,5% de su capacidad útil**, con aportes hídricos que XM —el operador del sistema— identificó como los más bajos en 40 años. El país estuvo, según reportes del sector, a menos de una semana de un apagón generalizado. La generación hidráulica cayó del 87% de la matriz al 47%. Colombia importó gas y activó generación térmica de emergencia.
+
+El test de Pettitt no había fallado. Había respondido correctamente la pregunta que se le formuló: ¿hubo un quiebre estadístico en la serie histórica disponible? La respuesta era no. Lo que el test no podía responder era la pregunta distinta: ¿habrá un quiebre en el futuro próximo?
+
+## El límite estructural de los métodos retrospectivos
+
+Esta distinción no es un detalle técnico menor. Es el límite estructural de cualquier metodología basada en series históricas.
+
+Un test de detección de quiebres —Pettitt, CUSUM, cualquiera de ellos— opera sobre datos que ya existen. Puede identificar con precisión estadística el momento en que el régimen cambió en el pasado. Por diseño, no puede identificar el próximo quiebre antes de que ocurra. Y en un régimen de cambio climático con tendencias que se aceleran, ese próximo quiebre puede llegar antes de que la serie tenga suficiente longitud como para detectarlo estadísticamente.
+
+Cuando el período representativo resultante es corto, emerge además una tensión adicional: la norma climatológica de la OMM establece que se necesitan al menos **30 años de datos** para estimar parámetros climáticos con precisión estadística razonable. Con una serie recortada, la incertidumbre en los parámetros de la distribución es alta. Usar el período posterior al quiebre significa elegir representatividad sobre robustez estadística. Es una elección razonable dado el contexto — pero es una elección, no una solución.
+
+## Lo que el estado del arte propone
+
+La literatura hidrológica lleva más de una década desarrollando alternativas al paradigma de estacionariedad. El artículo de referencia es el de Milly, Betancourt, Falkenmark et al. (2008) en *Science*: *"Stationarity is Dead: Whither Water Management?"* El argumento central es que el cambio climático antropogénico ha roto el envelope de variabilidad dentro del cual se diseñaron los sistemas de infraestructura hídrica.
+
+Las alternativas metodológicas más avanzadas incluyen:
+
+- **GAMLSS** *(Generalized Additive Models for Location, Scale and Shape)*: modela los parámetros de la distribución hidrológica como funciones de covariables climáticas —índices ENSO, PDO, temperatura— en lugar de tratarlos como constantes.
+- **Quantile Delta Mapping desde GCMs**: ajusta series históricas usando proyecciones de modelos climáticos globales, preservando la señal del cambio proyectado en lugar de solo corregir sesgos históricos.
+- **Generación estocástica con deriva temporal**: produce escenarios sintéticos que incorporan una tendencia proyectada en lugar de asumir que el futuro oscilará alrededor de la media histórica.
+
+Ninguno de estos enfoques está libre de incertidumbres — acumulan errores del modelo climático, del downscaling, del modelo hidrológico y del modelo energético. Pero responden una pregunta distinta: no "¿cuál es el régimen que hemos observado?" sino "¿cuál podría ser el régimen en el horizonte de planificación?"
+
+## La pregunta de fondo
+
+La IEA proyectó en 2023 que el factor de capacidad hidroeléctrico en América Latina caerá entre un 8% y un 9,6% para el período 2020-2059 respecto a la línea base 1970-2000, incluso en el escenario de menor calentamiento. Para sistemas donde la hidro representa entre el 40% y el 87% de la generación —como Chile y Colombia respectivamente— ese no es un número marginal.
+
+La pregunta no es si los tests de Pettitt y Mann-Kendall sirven. Sirven, y el sector hace bien en aplicarlos. La pregunta es si el sector está siendo suficientemente explícito sobre lo que esos tests garantizan y lo que no.
+
+Lo que garantizan: que el subconjunto de la serie histórica que se usa como input del modelo es estadísticamente coherente con el régimen reciente.
+
+Lo que no garantizan: que ese régimen sea representativo del futuro para el que se está planificando.
+
+Es una distinción que debería aparecer en los informes de planificación con la misma precisión con que aparecen los resultados del test.
+
+---
+
+**Fuentes:** Pettitt, A.N. (1979), "A Non-Parametric Approach to the Change-Point Problem", *Journal of the Royal Statistical Society*, 28(2), 126–135 · Milly, P.C.D. et al. (2008), "Stationarity is Dead: Whither Water Management?", *Science*, 319(5863), 573–574 · IEA, "Climate Impacts on Latin American Hydropower", 2023 · XM Colombia, reportes operativos crisis hidrológica 2024 · EPE Brasil, NT-EPE-DEA-016-2023, "Fortalecimento da Resiliência do Setor Elétrico em Resposta às Mudanças Climáticas".
