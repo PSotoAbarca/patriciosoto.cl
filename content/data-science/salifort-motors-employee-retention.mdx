@@ -1,0 +1,48 @@
+---
+title: "Salifort Motors: predicción de rotación de empleados"
+subtitle: "Capstone — Google Advanced Data Analytics"
+excerpt: "Modelo de clasificación (XGBoost) que identifica el driver #1 de renuncia en una consultora ficticia — la sobrecarga de proyectos — con 92.96% de recall en el set de prueba."
+tags: ["Python", "scikit-learn", "XGBoost", "Regresión logística"]
+metric: "F1 0.9512"
+github: "https://github.com/PSotoAbarca/google-advanced-data-analytics-portfolio/tree/main/capstone-project"
+order: 1
+---
+
+Salifort Motors enfrenta una rotación de personal crítica en los departamentos de Sales, Technical y Support, elevando sus costos de reclutamiento (~1.5x–2x el salario anual) y golpeando la productividad. El objetivo de este proyecto capstone fue analizar 11,991 registros únicos de encuestas internas de RR.HH. (tras limpiar 3,008 filas duplicadas) para identificar qué variables predicen mejor la salida de un empleado, y construir un modelo de clasificación que apoye estrategias de retención proactivas.
+
+## Metodología
+
+1. Limpieza de datos y estandarización de columnas.
+2. EDA y prueba de hipótesis (t-test de dos muestras) comparando horas trabajadas y satisfacción entre quienes se quedaron y quienes se fueron.
+3. Entrenamiento y comparación de 4 modelos — Logistic Regression (baseline), Decision Tree, Random Forest y XGBoost — con validación cruzada (`GridSearchCV`) sobre un split estratificado train/validation/holdout test.
+4. Selección del modelo campeón por F1-score y Recall, dado el desbalance de clases (83.4% se quedó vs. 16.6% se fue).
+
+## Hallazgos clave
+
+- **Burnout, el driver #1.** Empleados con 6–7 proyectos asignados trabajan más de 250 horas mensuales y presentan una rotación cercana al 100%.
+- **Subutilización.** Empleados con solo 2 proyectos (~150 hrs/mes) también renuncian a tasas elevadas, por desconexión y falta de crecimiento.
+- **Vulnerabilidad de tenencia media.** Las salidas se concentran entre los años 3 y 5 de antigüedad, coincidiendo con la satisfacción laboral más baja (menor a 0.15).
+- **Estancamiento de carrera.** Menos del 2% de quienes renunciaron había sido promovido en los últimos 5 años.
+
+## Resultado del modelo
+
+El modelo campeón (**XGBoost**) alcanzó, en el set de holdout test:
+
+- **98.42%** accuracy
+- **97.37%** precisión
+- **92.96%** recall
+- **F1-score de 0.9512**
+
+Las 5 variables más importantes (`number_project`, `satisfaction_level`, `last_evaluation`, `average_monthly_hours`, `time_spend_company`) explican más del 95% del poder predictivo del modelo.
+
+<ArticleImage
+  src="/data-science/salifort-feature-importance.png"
+  alt="Importancia de features del modelo XGBoost champion: número de proyectos, nivel de satisfacción y tenencia son los 3 predictores más fuertes de renuncia."
+/>
+
+## Recomendaciones de negocio
+
+- Establecer un tope de 3 a 5 proyectos por persona (180–220 horas mensuales) con alertas automáticas de RR.HH. sobre las 240 hrs/mes.
+- Instaurar revisiones de carrera estructuradas en los años 3 y 4 de tenencia.
+- Revisar bandas salariales para los mejores evaluados en los tramos de salario bajo/medio.
+- Usar las predicciones del modelo para activar entrevistas de retención 3–6 meses antes de una renuncia probable — nunca como base para acciones punitivas.

@@ -9,6 +9,7 @@ const links = [
   { href: "/", label: "Inicio" },
   { href: "/columna", label: "Columna" },
   { href: "/proyectos", label: "Proyectos" },
+  { href: "/data-science", label: "Data Science" },
   { href: "/contacto", label: "Contacto" },
 ];
 

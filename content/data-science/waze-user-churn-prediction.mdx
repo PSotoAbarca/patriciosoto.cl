@@ -1,0 +1,39 @@
+---
+title: "Waze: predicción de abandono de usuarios"
+subtitle: "Portfolio Project — Google Advanced Data Analytics (Courses 1–5)"
+excerpt: "Recorrido de 5 entregas, desde la limpieza de datos hasta un modelo de ensamble (XGBoost) que captura 99.66% de los usuarios en riesgo real de abandonar la app."
+tags: ["Python", "Pandas", "Estadística inferencial", "Random Forest", "XGBoost"]
+metric: "Recall 99.66%"
+github: "https://github.com/PSotoAbarca/google-advanced-data-analytics-portfolio/tree/main/portfolio-project"
+order: 2
+---
+
+El equipo de datos de Waze necesita entender y predecir el abandono (*churn*) de usuarios para optimizar sus estrategias de retención mensual. Este proyecto se entregó como 5 hitos incrementales — uno por curso del certificado — sobre el mismo dataset (~14,999 perfiles de usuario), cada uno agregando una capa de análisis sobre el trabajo anterior.
+
+## La narrativa, curso a curso
+
+1. **Inspección y limpieza.** Se descartan 700 registros sin etiqueta de churn (missing completely at random) y aparece la anomalía "super-driver": usuarios que abandonan la app registran en promedio 697.5 km por día de manejo, un 240% más que los retenidos.
+2. **Análisis exploratorio.** Se trata la asimetría y outliers con una función de winsorización, y emerge la "paradoja del heavy-user": a mayor distancia recorrida por día, mayor probabilidad de churn — mientras que la frecuencia de uso (no la distancia) es lo que realmente retiene.
+3. **Prueba de hipótesis.** Un t-test de dos muestras confirma que el sistema operativo (iPhone vs. Android) **no** influye en el comportamiento de manejo (p = 0.1434), descartando esa variable como palanca de producto.
+4. **Regresión logística.** El primer modelo predictivo identifica `activity_days` como el driver más fuerte de retención, pero solo captura ~10% de los churners reales — insuficiente para uso operativo.
+5. **Modelos de ensamble.** Random Forest y XGBoost resuelven la limitación anterior.
+
+## Resultado del modelo campeón
+
+El modelo final (**XGBoost**) alcanzó, en el set de holdout test:
+
+- **99.66%** recall
+- **82.48%** precisión
+- **F1-score de 90.26%**
+- **82.31%** accuracy
+
+Identificó correctamente 2,345 de 2,353 churners reales — solo 8 falsos negativos — a cambio de 498 falsos positivos. Las variables `activity_days` y `n_days_after_onboarding` dominan la importancia predictiva.
+
+<ArticleImage
+  src="/data-science/waze-confusion-matrix.png"
+  alt="Matriz de confusión del modelo XGBoost en el set de holdout test: 2,345 churners detectados correctamente contra solo 8 falsos negativos (eje: 0 = usuario retenido, 1 = usuario en riesgo de churn)."
+/>
+
+## Recomendación de negocio
+
+Calibrar el umbral de decisión (0.5 por defecto) según el costo real de cada campaña de retención: si la intervención es barata (ej. una notificación in-app), conviene mantener el modelo en su configuración de alto recall; si la intervención tiene un costo relevante, ajustar el umbral para reducir falsos positivos.
