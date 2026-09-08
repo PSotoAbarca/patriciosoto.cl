@@ -19,6 +19,11 @@ patriciosoto/
 │   ├── proyectos/
 │   │   └── page.tsx              # /proyectos — Grid de proyectos
 │   │
+│   ├── data-science/
+│   │   ├── page.tsx              # /data-science — Intro + cards de case studies
+│   │   └── [slug]/
+│   │       └── page.tsx          # /data-science/[slug] — Resumen ejecutivo completo
+│   │
 │   ├── contacto/
 │   │   └── page.tsx              # /contacto — Formulario de contacto
 │   │
@@ -33,16 +38,21 @@ patriciosoto/
 │   ├── AboutSection.tsx          # Sección "Acerca de mí" (foto + bio)
 │   ├── ArticleCard.tsx           # Card de artículo (borde verde + línea dorada)
 │   ├── ProjectCard.tsx           # Card de proyecto (mismo estilo)
+│   ├── CaseStudyCard.tsx         # Card de case study de Data Science (mismo estilo)
 │   ├── ContactForm.tsx           # Formulario de contacto con validación
 │   └── ReadingProgress.tsx       # Barra de progreso de lectura
 │
 ├── content/
-│   └── columna/                  # ← AQUÍ van los artículos .mdx
-│       └── ejemplo.mdx
+│   ├── columna/                  # ← AQUÍ van los artículos .mdx
+│   │   └── ejemplo.mdx
+│   └── data-science/              # ← AQUÍ van los case studies .mdx
+│       ├── salifort-motors-employee-retention.mdx
+│       └── waze-user-churn-prediction.mdx
 │
 ├── lib/
 │   ├── mdx.ts                    # getArticles(), getArticleBySlug()
 │   ├── projects.ts               # FEATURED_PROJECTS (datos de proyectos)
+│   ├── dataScience.ts            # getCaseStudies(), getCaseStudyBySlug()
 │   └── utils.ts                  # Utilidades (formatDate, etc.)
 │
 ├── public/                       # Archivos estáticos
@@ -99,6 +109,8 @@ brand: {
 | `/columna` | Listado completo de artículos del blog |
 | `/columna/[slug]` | Artículo individual |
 | `/proyectos` | Proyectos y trabajos |
+| `/data-science` | Certificado Google Advanced Data Analytics — case studies |
+| `/data-science/[slug]` | Resumen ejecutivo completo de un case study |
 | `/contacto` | Formulario de contacto |
 | `/api/contact` | API interna para enviar emails |
 

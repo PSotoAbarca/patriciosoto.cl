@@ -1,0 +1,82 @@
+---
+title: "Data Centers en el Desierto: ¿Carga Sistémica o la Demanda Flexible que el SEN necesita?"
+subtitle: "Chile tiene los ingredientes: vertimientos récord, radiación solar de clase mundial y una demanda tecnológica que llegará a 1.200 MW en cuatro años. La pregunta no es si los data centers van a llegar. Es si van a llegar como parte de la solución."
+excerpt: "En 2025, Chile vertió 6.205 GWh de energía renovable. Al mismo tiempo, la industria de data centers proyecta llegar a 1.207 MW de demanda hacia 2030, casi cuatro veces los niveles actuales. Estas dos curvas convergen. Lo que aún no está resuelto es cómo deben encontrarse."
+date: "2026-04-13"
+tag: "Mercados"
+linkedinUrl: "https://www.linkedin.com/posts/patricio-soto-abarca_energaedachile-sen-datacenters-share-7449610098445967360-hKlb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAfjCbQB2z_WO1v4SXFhaWhpiyUxfIWjiX0"
+image: "/columna/data-centers-desierto-vertimientos-infografia.png"
+---
+
+*Una columna sobre lo que ocurre cuando la mayor explosión de demanda tecnológica de la región se encuentra con el sistema eléctrico con más energía renovable desperdiciada del continente.*
+
+---
+
+En 2025, el SEN vertió en torno a 6.000 GWh de energía solar y eólica que no encontró destino en la red — según reportes del sector energético. Dos años antes eran 2.376 GWh. Pero el número más revelador no es ese: sin los sistemas de almacenamiento BESS que entraron en operación durante 2024 y 2025, el vertimiento habría alcanzado ~8.400 GWh, un 43% más. Los aproximadamente 1.600 MW de BESS operativos a fin de año entregaron 2 TWh al sistema y contuvieron una presión que la red, por sí sola, no habría podido absorber. Al mismo tiempo, el Coordinador Eléctrico Nacional proyecta que la industria de data centers demandará 1.207 MW hacia 2030, casi cuatro veces los ~325 MW actuales. Estas dos curvas están convergiendo. La pregunta que los planificadores aún no han respondido con claridad es si van a encontrarse de manera productiva, o si simplemente se sumarán como dos problemas distintos sobre el mismo sistema.
+
+<ArticleImage
+  src="/columna/data-centers-desierto-vertimientos-infografia.png"
+  alt="Data Centers en el Desierto: ¿Carga Sistémica o la Demanda Flexible que el SEN necesita?"
+/>
+
+## La concentración geográfica y sus costos
+
+El 86% de la capacidad proyectada de data centers al 2030 se ubicará en la Región Metropolitana, según datos del CEN analizados por Systep. Santiago es hoy el segundo mercado de data centers de América Latina después de São Paulo (CBRE, 2024), con tasas de vacancia bajo el 5% y precios de renta en alza sostenida. El problema es que esta concentración agrava exactamente los cuellos de botella que el sistema ya tiene: el corredor de transmisión que abastece la zona central opera bajo presión en horas peak, y el acceso al agua — insumo crítico para los sistemas de enfriamiento convencionales — ya generó conflictos ambientales con precedente jurídico concreto.
+
+El Tribunal Ambiental de Santiago paralizó el segundo data center de Google en Quilicura al cuestionar su solicitud de extracción de 228 litros por segundo de aguas subterráneas. El primer proyecto operativo usa 50 L/s. Más de 50 observaciones ciudadanas se presentaron contra Amazon y 118 contra Microsoft en procesos equivalentes. Este no es un riesgo abstracto de largo plazo: es el obstáculo regulatorio más inmediato que enfrenta la expansión del sector.
+
+## La lógica del arbitraje de nodos — y sus límites reales
+
+El norte de Chile tiene el recurso que sobra. Las regiones de Antofagasta y Atacama concentraron el 76,7% del vertimiento en 2025. Entre las 10:00 y las 16:00 horas, el costo marginal en nodos del norte colapsa a cero por saturación de generación solar. Un data center ubicado en esa zona podría consumir directamente la energía que hoy se vierte, sin necesidad de transmitirla al centro del país.
+
+El Plan Nacional de Data Centers (PData), lanzado en diciembre de 2024 por el Ministerio de Ciencias con la participación de nueve ministerios, contempla explícitamente "campus tecnológicos regionales especializados en infraestructura para el entrenamiento de IA". El acuerdo más avanzado es con la empresa estatal Desarrollo País para un campus en Antofagasta, aprovechando el potencial solar y eólico de la región.
+
+Pero la propuesta tiene dos restricciones técnicas que merecen atención explícita antes de proyectarla como solución universal.
+
+La primera es la latencia. La distancia Antofagasta-Santiago implica una latencia de propagación por fibra óptica de entre 6 y 15 milisegundos. Para cargas batch — entrenamiento de modelos de IA, procesamiento de video, pipelines de análisis, respaldos — este valor es irrelevante. Para cargas sensibles al tiempo — inferencia en tiempo real, plataformas financieras, streaming interactivo — es inaceptable. Un campus de IA en el norte no reemplaza la capacidad en la RM; puede ser complementario para workloads específicos. La distinción importa porque define qué tipo de industria se está atrayendo y qué usuarios puede servir.
+
+La segunda es el agua. El Atacama tiene mayor estrés hídrico que la cuenca del Maipo. Desplazar data centers al norte para aliviar el conflicto del agua en Santiago es geográficamente tentador, pero no resuelve el problema: simplemente lo traslada a un ecosistema más frágil. La respuesta no está en la geografía, sino en los estándares técnicos: refrigeración por inmersión, sistemas adiabáticos de bajo consumo o acceso a agua de mar desalinizada en ubicaciones costeras. El PData debería exigir estas condiciones como estándar técnico obligatorio, con independencia de dónde se instale la infraestructura.
+
+## El data center como recurso de flexibilidad activa
+
+Si la discusión se agota en dónde construir, se está perdiendo la pregunta más relevante.
+
+Un data center moderno tiene una ventaja que ningún otro cliente industrial posee: la capacidad de separar sus cargas según urgencia operacional. Las cargas de producción — servidores en tiempo real, bases de datos transaccionales — requieren disponibilidad del orden del 99,999%. Las cargas batch — entrenamiento de modelos, análisis de datos, procesamiento de respaldo — pueden desplazarse en el tiempo con consecuencias mínimas para el negocio y sin afectar los acuerdos de nivel de servicio con los clientes.
+
+Google opera bajo el concepto de carbon-aware computing desde 2021: sus algoritmos desplazan cargas batch hacia ventanas horarias donde la intensidad de carbono de la red es más baja, aprovechando períodos de alta generación renovable. EPRI demostró en 2024, con datos reales del data center de Oracle en Phoenix, que es posible reducir el consumo en un 25% durante horas peak sin violar ningún SLA de disponibilidad. Este no es un argumento conceptual — es ingeniería operativa documentada en condiciones reales de operación.
+
+La implicancia para Chile es directa. Los ~1.600 MW de BESS operativos en 2025 evitaron ~2.400 GWh de vertimiento adicional. Un parque de data centers que modula 1.200 MW de carga batch en función del precio marginal en el nodo norte tiene un efecto sistémico comparable — y complementario. El BESS y la demanda flexible no compiten: el primero actúa en el eje temporal (desplaza energía de mediodía a la noche), el segundo actúa en el eje geográfico (consume in situ donde la generación sobra). El concepto técnico que describe esta arquitectura es la Virtual Power Plant (VPP) orientada a demanda: un activo que no solo consume energía, sino que entrega flexibilidad al sistema cuando este la necesita.
+
+## La pregunta que el debate aún no ha cerrado
+
+La convergencia entre vertimientos masivos y nuevas cargas tecnológicas abre una discusión de fondo que la política energética chilena no ha resuelto de manera explícita: ¿cuál es la mejor forma de comercializar los excedentes renovables?
+
+Hay hoy tres respuestas en competencia, con distintos grados de madurez institucional.
+
+Los data centers son la apuesta del gobierno: el PData proyecta más de USD 4.000 millones en inversión total, y el argumento de fondo es que permiten exportar electricidad de manera indirecta a través de datos, con valor agregado que va más allá de la energía transada. El hidrógeno verde es la apuesta del Ministerio de Energía para el horizonte de largo plazo: electrólisis con excedentes renovables para exportación, con meta de más de 1.000 kTon al 2035, aunque la infraestructura de exportación a escala aún está en construcción.
+
+Una tercera opción ha comenzado a mencionarse sin respaldo oficial. FinteChile publicó en 2025 una propuesta para posicionar a Chile como hub de minería de Bitcoin usando excedentes solares, argumentando costos competitivos de 25-30 USD/MWh y un potencial de hasta 100 MW instalados en escenario optimista. La lógica de fondo comparte el núcleo de la propuesta de los data centers: convertir energía eléctrica que hoy se pierde en un activo digital exportable. La diferencia estructural es que un data center genera empleo calificado local, ancla ecosistemas de innovación y tiene encadenamiento productivo con la economía regional. Un equipo de minería ASIC no hace ninguna de esas cosas, y su huella hídrica — aunque menor que un DC convencional — tampoco es cero.
+
+La pregunta sobre cómo comercializar los excedentes no tiene una respuesta única correcta. Pero si Chile va a tomar decisiones de largo plazo sobre qué cargas atraer y cómo ubicarlas, esa decisión debería surgir de una política energética explícita — no de la inercia de un mercado que simplemente acumula demanda donde ya está la fibra y ya están los clientes.
+
+## La brecha regulatoria que hace todo esto difícil
+
+El obstáculo central no está en la tecnología ni en la disponibilidad de recursos. Está en la regulación de servicios sistémicos.
+
+Chile tiene un mecanismo de cargas interrumpibles para clientes libres, licitado ocasionalmente por el Coordinador: 50 MW en 2023, servicio que no fue requerido en 2024. Es un esquema contingente y reactivo, no un mercado estructural. La Ley de Transición Energética (N° 21.721, 2024) se enfocó en transmisión y planificación; la demanda activa como participante del sistema no fue parte de ese diseño.
+
+Un data center que quisiera actuar hoy como VPP en Chile — modulando carga batch en horas de alto vertimiento, cediendo flexibilidad al sistema — no tiene un marco regulatorio que lo habilite de manera predecible. El PData convoca inversión y define metas de MW instalados, pero no tiene contraparte energética que defina cómo esos mismos data centers se integran al sistema como activos flexibles y no simplemente como carga adicional.
+
+Esta es la brecha que separa la propuesta de la realidad: Chile puede atraer los data centers. El mercado los traerá de todas formas, con o sin política pública. Lo que aún falta es diseñar la arquitectura regulatoria para que cuando lleguen, lo hagan como activos flexibles del sistema y no como una carga adicional sobre una red que ya opera al límite.
+
+## Cierre: los datos van a llegar, la regulación aún no
+
+La línea HVDC Kimal-Lo Aguirre aliviará la congestión norte-centro en 2029. Pero el problema de los vertimientos no es solo de transmisión: es de demanda que no está donde la generación sobra, y que cuando llega, lo hace sin la flexibilidad que el sistema necesita.
+
+Chile tiene los ingredientes. Lo que aún no tiene es la arquitectura regulatoria que los haga converger: un marco que habilite la demanda activa como participante del sistema, estándares técnicos hídricos exigibles independientes de la geografía, y una discusión pública sobre qué usos productivos de los excedentes son coherentes con el proyecto de desarrollo del país.
+
+Los data centers van a llegar. La pregunta es si van a llegar como parte de la solución al problema de los vertimientos, o simplemente como la próxima variable que la planificación tardará una década en absorber.
+
+---
+
+**Fuentes:** Coordinador Eléctrico Nacional, Reporte Art. 72-15, 2024 · Reportes del sector energético, vertimiento 2025 (Electrominería, Reporte Minero) · CEN / Systep, proyección demanda data centers 2030 · CBRE Global Data Center Trends 2024 · Plan Nacional de Data Centers 2024-2030, MinCiencia · Estrategia Nacional de Hidrógeno Verde, Ministerio de Energía · Google carbon-aware computing, Electricity Maps · EPRI/DCFlex, Oracle Phoenix data center flexibility study, 2024 · FinteChile, propuesta minería digital con excedentes solares, 2025 · Data Center Dynamics, paralización segundo DC Google Quilicura.
