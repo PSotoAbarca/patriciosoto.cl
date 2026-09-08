@@ -18,6 +18,8 @@ patriciosotoa.com ✅
 
 Cada vez que haces `git push` a la rama `main`, Vercel detecta el cambio y redeploya automáticamente. No necesitas hacer nada más.
 
+> Nota (2026-09-08): el webhook GitHub → Vercel dejó de dispararse por un tiempo (probablemente por un permiso revocado de la GitHub App). Se solucionó reconectando el repo en Settings → Git. Si vuelve a pasar, ese es el primer lugar a revisar.
+
 ```bash
 # Flujo estándar para publicar cambios
 git add .
